@@ -4,7 +4,7 @@
 // const cors = require("cors") 
 // const bodyParser = require("body-parser")
 // const recieveData = require("./mongoconnect")
-import { recieveData } from "@/backend/mongoconnect";
+import { recieveData } from "@/lib/mongoconnect";
 // const port = 3001
 // const app = express()
 
