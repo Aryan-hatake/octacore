@@ -1,5 +1,5 @@
 
-const mongoose = require("mongoose")
+import mongoose from "mongoose"
 
 const querySchema = new mongoose.Schema({
     name:{
@@ -23,4 +23,4 @@ const querySchema = new mongoose.Schema({
 })
 
 const queryData = new mongoose.model('query',querySchema)
-module.exports=queryData
+export {queryData}
