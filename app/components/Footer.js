@@ -33,7 +33,7 @@ const Footer = () => {
         setSubmitStatus("")
 
         try {
-            const response = await fetch("http://localhost:3001/", {
+            const response = await fetch("https://octacore-1788.vercel.app/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form)
