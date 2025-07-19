@@ -3,7 +3,7 @@
 // const dotenv =require('dotenv')
 // dotenv.config();
 import mongoose from 'mongoose';
-import querySchema from './models/dataSchema.js';
+import querySchema from '../../models/dataSchema.js';
 
 
 export default async function Mongoconnect(){

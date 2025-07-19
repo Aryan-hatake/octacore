@@ -4,7 +4,7 @@
 // const cors = require("cors") 
 // const bodyParser = require("body-parser")
 // const recieveData = require("./mongoconnect")
-import { recieveData } from './mongoconnect';
+import { recieveData } from '../mongoconnect';
 
 // const port = 3001
 // const app = express()
@@ -14,11 +14,9 @@ import { recieveData } from './mongoconnect';
 // app.use(cors())
 // app.use(bodyParser.json())
 
-export default async function handler(req, res) {
+export  async function GET() {
 
-   if (req.method == "GET") {
-      res.status(200).send("connected")
-   }
+   return new Response("connected", { status: 200 });
    //    app.get('/',(req,res)=>{
    //    res.send("connected")
    // })
@@ -28,25 +26,29 @@ export default async function handler(req, res) {
    //   console.log(req.body)
    //   recieveData(req.body)
    // })
-   if (req.method == "POST") {
-      try{
+}
+export async function POST(req){
 
-         console.log(req.body)
+  
+      try{
+         const body = await req.json()   
+         console.log(body)
          console.log("POST FETCHED")
-         await recieveData(req.body)
-         res.status(200).send("POST FETCHED")
+         await recieveData(body)
+          return new Response("POST FETCHED", { status: 200 });
       }
       catch(error){
           console.log(error)
-          res.status(500).json({ error: 'Something went wrong' });
+           return new Response("Something went wrong", { status: 500 });
       }
    }
+
 
    // app.listen(port, () => {
    //    console.log("server listening on port", `http://localhost:${port}`)
    // })
 
-}
+
 //    await Mongoconnect();
 
 //   queryData.insertMany({})
